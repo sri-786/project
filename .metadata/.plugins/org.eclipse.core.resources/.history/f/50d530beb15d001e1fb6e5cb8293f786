@@ -1,0 +1,8 @@
+package inheritance;
+
+public class Sim5G {
+	public void sim5g() {
+		System.out.println("5G+");
+	}
+
+}

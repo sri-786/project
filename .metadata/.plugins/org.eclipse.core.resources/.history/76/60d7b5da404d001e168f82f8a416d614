@@ -1,0 +1,114 @@
+package package2;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class Demo_nopcommerce {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\gbsk2\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		WebDriver driver = new ChromeDriver(options);
+		
+		driver.get("https://demo.nopcommerce.com/register?returnUrl=%2Fcart");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
+		//Register the WebPage Enter the all details
+		driver.findElement(By.id("gender-male")).click();
+		driver.findElement(By.name("FirstName")).sendKeys("Sri");
+		driver.findElement(By.name("LastName")).sendKeys("Kanth");
+		
+		WebElement select_d=driver.findElement(By.name("DateOfBirthDay"));
+		Select select_day=new Select(select_d);
+		select_day.selectByIndex(5);
+		
+		WebElement select_m=driver.findElement(By.name("DateOfBirthMonth"));
+		Select select_month=new Select(select_m);
+		select_month.selectByValue("3");
+		
+		WebElement select_y=driver.findElement(By.name("DateOfBirthYear"));
+		Select select_year=new Select(select_y);
+		select_year.selectByVisibleText("1998");
+		
+		driver.findElement(By.cssSelector("input#Email")).sendKeys("sri1231@gmail.com");
+		driver.findElement(By.cssSelector("input[name=\"Company\"]")).sendKeys("Charani");
+		driver.findElement(By.cssSelector("input[id=\"Password\"]")).sendKeys("srikanth1234");
+		driver.findElement(By.cssSelector("input[name=\"ConfirmPassword\"]")).sendKeys("srikanth1234");
+		driver.findElement(By.cssSelector("button.button-1[id=\"register-button\"]")).click();
+		
+		Thread.sleep(2000);
+		
+		//Login Page
+		driver.findElement(By.xpath("(//*[text()=\"Log in\"])[1]")).click();
+		driver.findElement(By.id("Email")).sendKeys("sri1231@gmail.com");
+		driver.findElement(By.name("Password")).sendKeys("srikanth1234");
+		driver.findElement(By.id("RememberMe")).click();
+		driver.findElement(By.cssSelector("button.login-button[type=\"submit\"]")).click();
+		
+		//Selecting the Computers Product and Add to cart
+		driver.findElement(By.xpath("//*[text()=\"Computers \"]")).click();
+		driver.findElement(By.xpath("//*[text()=\"Desktops \"]")).click();
+		
+		driver.findElement(By.xpath("//*[text()=\"Build your own computer\"]")).click();
+		
+		WebElement pro=driver.findElement(By.xpath("//*[@id=\"product_attribute_1\"]"));
+		Select processer=new Select(pro);
+		processer.selectByValue("1");
+		
+		WebElement ram=driver.findElement(By.xpath("//*[@id=\"product_attribute_2\"]"));
+		Select ram_1=new Select(ram);
+		ram_1.selectByValue("5");
+		
+		driver.findElement(By.xpath("//*[@id=\"product_attribute_3_7\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"add-to-cart-button-1\"]")).click();
+		
+		WebElement moiveto1=driver.findElement(By.xpath("(//*[text()=\"Computers \"])[1]"));
+		Actions act = new Actions(driver);
+		act.moveToElement(moiveto1).perform();
+		
+		WebElement note=driver.findElement(By.xpath("//*[text()=\"Notebooks \"]"));
+		act.click(note).perform();
+		
+		
+	
+	driver.findElement(By.xpath("//*[text()=\"Apple MacBook Pro 13-inch\"]")).click();				driver.findElement(By.xpath("//*[@id=\"add-to-cart-button-4\"]")).click();
+
+		WebElement moiveto=driver.findElement(By.xpath("(//*[text()=\"Computers \"])[1]"));
+		
+		act.moveToElement(moiveto).perform();
+		
+		WebElement soft=driver.findElement(By.xpath("//*[text()=\"Software \"]"));
+		act.click(soft).perform();
+		driver.findElement(By.partialLinkText("Sound Forge Pro 11 (recurring)")).click();
+		driver.findElement(By.xpath("//*[@id=\"add-to-cart-button-12\"]")).click();
+		
+		WebElement cart=driver.findElement(By.cssSelector("span.cart-label"));
+		act.moveToElement(cart).perform();
+		WebElement go_to_cart=driver.findElement(By.cssSelector("button.cart-button"));
+		act.moveToElement(go_to_cart).click().perform();
+		
+//		WebElement sort_by=driver.findElement(By.xpath("//*[@id=\"products-orderby\"]"));
+//		Select sort = new Select(sort_by);
+//		sort.selectByValue("15");
+//		
+//		WebElement display_page=driver.findElement(By.xpath("//*[@id=\"products-pagesize\"]"));
+//		Select display = new Select(display_page);
+//		display.selectByVisibleText("9");
+//		
+//		driver.findElement(By.xpath("//*[@title=\"List\"]")).click();
+//		
+	
+	}
+
+}

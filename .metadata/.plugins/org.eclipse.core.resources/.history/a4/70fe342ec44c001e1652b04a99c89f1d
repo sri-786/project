@@ -1,0 +1,86 @@
+package demonopcommers;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Computers extends Login{
+
+//	public static WebDriver driver;
+
+	public static void main(String[] args) {
+
+		
+//		System.setProperty("webdriver.chrome.driver",
+//				"C:\\Users\\gbsk2\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--remote-allow-origins=*");
+		//driver = new ChromeDriver(options);
+		Login s=new Login();
+		s.main(args);
+		s.rg();
+		s.Lg();
+		
+		
+		
+
+		driver.get("https://demo.nopcommerce.com/register?returnUrl=%2Fcart");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		//Selecting the Computers Product and Add to cart
+				driver.findElement(By.xpath("(//*[text()=\"Computers \"])[1]")).click();
+				driver.findElement(By.xpath("(//*[text()=\"Desktops \"])[3]")).click();
+				driver.findElement(By.xpath("//*[text()=\"Build your own computer\"]")).click();
+				
+				WebElement pro=driver.findElement(By.xpath("//*[@id=\"product_attribute_1\"]"));
+				Select processer=new Select(pro);
+				processer.selectByValue("1");
+				
+				WebElement ram=driver.findElement(By.xpath("//*[@id=\"product_attribute_2\"]"));
+				Select ram_1=new Select(ram);
+				ram_1.selectByValue("5");
+				
+				driver.findElement(By.xpath("//*[@id=\"product_attribute_3_7\"]")).click();
+				driver.findElement(By.xpath("//*[@id=\"add-to-cart-button-1\"]")).click();
+				
+				WebElement moiveto1=driver.findElement(By.xpath("(//*[text()=\"Computers \"])[1]"));
+				Actions act = new Actions(driver);
+				act.moveToElement(moiveto1).perform();
+				
+				WebElement note=driver.findElement(By.xpath("//*[text()=\"Notebooks \"]"));
+				act.click(note).perform();
+				
+				driver.findElement(By.xpath("//*[@id=\"attribute-option-7\"]")).click();
+				driver.findElement(By.xpath("//*[@id=\"attribute-option-8\"]")).click();
+				
+				driver.findElement(By.xpath("//*[@id=\"attribute-option-9\"]")).click();
+				
+				WebDriverWait r=new WebDriverWait(driver,Duration.ofSeconds(20));
+				r.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()=\"Apple MacBook Pro 13-inch\"]"))).click();
+		//	driver.findElement(By.xpath("//*[text()=\"Apple MacBook Pro 13-inch\"]")).click();				driver.findElement(By.xpath("//*[@id=\"add-to-cart-button-4\"]")).click();
+//	
+//				WebElement moiveto=driver.findElement(By.xpath("(//*[text()=\"Computers \"])[1]"));
+//				
+//				act.moveToElement(moiveto).perform();
+//				
+//				WebElement soft=driver.findElement(By.xpath("//*[text()=\"Software \"]"));
+//				act.click(soft).perform();
+//				driver.findElement(By.partialLinkText("Sound Forge Pro 11 (recurring)")).click();
+//				driver.findElement(By.xpath("//*[@id=\"add-to-cart-button-12\"]")).click();
+//				
+//				WebElement cart=driver.findElement(By.cssSelector("span.cart-label"));
+//				act.moveToElement(cart).perform();
+//				WebElement go_to_cart=driver.findElement(By.cssSelector("button.cart-button"));
+//				act.moveToElement(go_to_cart).click().perform();
+				
+	}
+
+}

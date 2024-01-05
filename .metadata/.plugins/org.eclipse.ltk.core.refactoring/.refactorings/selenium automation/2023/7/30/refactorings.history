@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;package1.alert_and_forms&apos; to &apos;alerts_and_frames&apos;&#x0D;&#x0A;- Original project: &apos;selenium automation&apos;&#x0D;&#x0A;- Original element: &apos;package1.alert_and_forms&apos;&#x0D;&#x0A;- Renamed element: &apos;package1.alerts_and_frames&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;alert_and_forms&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;package1{alert_and_forms.java[alert_and_forms" matchStrategy="1" name="alerts_and_frames" qualified="false" references="true" similarDeclarations="false" stamp="1690345629139" textual="false" version="1.0"/>
+</session>

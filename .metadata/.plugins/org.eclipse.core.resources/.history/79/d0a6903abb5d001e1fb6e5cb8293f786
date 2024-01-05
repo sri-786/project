@@ -1,0 +1,23 @@
+package inheritance;
+
+public class Sim3G extends Sim2g{
+	
+	public void sim3g() {
+		super.sim2g();
+		System.out.println("gprs");
+
+	}
+	public static void main(String args[]) {
+		Sim3G sim=new Sim3G();
+		int first_number=5;
+		int second_number=9;
+		int count=sim.adition(first_number, second_number);
+		System.out.println(count);
+		
+		String s1="Sri";
+		String s2="Kanth";
+		String ad=sim.str(s1, s2);
+		System.out.println(ad);
+	}
+	
+}

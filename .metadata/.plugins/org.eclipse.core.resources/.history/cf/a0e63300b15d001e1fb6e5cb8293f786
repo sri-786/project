@@ -1,0 +1,14 @@
+package inheritance;
+
+public class Sim3G extends Sim2g{
+	public static void main(String args[]) {
+		Sim3G sim=new Sim3G();
+		sim.sim2g();
+		sim.sim3g();	}
+	public void sim3g() {
+		super.sim2g();
+		System.out.println("gprs");
+
+	}
+
+}

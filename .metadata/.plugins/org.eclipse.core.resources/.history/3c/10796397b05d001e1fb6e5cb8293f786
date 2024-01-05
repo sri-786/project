@@ -1,0 +1,10 @@
+package inheritence;
+
+public class Sim3G{
+	public void sim3g() {
+		
+		System.out.println("gprs");
+
+	}
+
+}

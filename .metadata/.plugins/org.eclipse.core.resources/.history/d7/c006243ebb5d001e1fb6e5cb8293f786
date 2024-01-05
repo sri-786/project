@@ -1,0 +1,61 @@
+package inheritance;
+
+public class Sim2g {
+ public void sim2g() {
+	 System.out.println("Calling");
+	 System.out.println("SMS");
+ 
+ }
+ 
+ public int adition(int a, int b) {
+	 return a+b;
+ }
+ public String str(String c,String e) {
+	 
+	 return c+e;
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+}

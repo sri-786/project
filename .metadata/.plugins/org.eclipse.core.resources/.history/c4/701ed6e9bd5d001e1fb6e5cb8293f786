@@ -1,0 +1,43 @@
+package inheritance;
+
+public class This_keyword {
+	
+	  
+		int rollno;  
+		String name;  
+		float fee;  
+		This_keyword(int rollno,String name,float fee){  
+		rollno=rollno;  
+		name=name;  
+		fee=fee;  
+		}  
+		void display(){System.out.println(rollno+" "+name+" "+fee);}  
+		}  
+//	
+	 
+//		int rollno;  
+//		String name;  
+//		float fee;  
+//		This_keyword(int rollno,String name,float fee){  
+//		this.rollno=rollno;  
+//		this.name=name;  
+//		this.fee=fee;  
+//		}  
+//		void display(){System.out.println(rollno+" "+name+" "+fee);}  
+//		}  
+		  
+
+//		int rollno;  
+//		String name;  
+//		float fee;  
+//		This_keyword(int r,String n,float f){  
+//			rollno=r;  
+//			name=n;  
+//			fee=f;  
+//		}  
+//		
+//		void display(){System.out.println(rollno+" "+name+" "+fee);}  
+//		
+//		
+//		}  
+		

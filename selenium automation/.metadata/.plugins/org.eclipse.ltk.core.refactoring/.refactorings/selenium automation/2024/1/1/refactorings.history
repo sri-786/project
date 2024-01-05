@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Shopping.java&apos; to &apos;selenium automation/src/selenium_practice&apos;&#x0D;&#x0A;- Original project: &apos;selenium automation&apos;&#x0D;&#x0A;- Destination element: &apos;selenium automation/src/selenium_practice&apos;&#x0D;&#x0A;- Original element: &apos;selenium_practice.Shopping.java&apos;" description="Copy compilation unit" destination="/src&lt;selenium_practice" element1="/src&lt;selenium_practice{Shopping.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1704158411169" units="1" version="1.0"/>
+</session>

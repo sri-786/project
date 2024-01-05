@@ -1,0 +1,71 @@
+package package2;
+
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class TextCases2 {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\gbsk2\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		WebDriver driver = new ChromeDriver(options);
+		
+		driver.get("http://qaclickacademy.com/practice.php");
+		driver.manage().window().maximize();
+		
+
+		// 3-
+		WebElement coloumndriver = driver.findElement(By.xpath("//*[@id=\"openwindow\"]"));
+		System.out.println(coloumndriver.findElements(By.tagName("a")).size());
+
+		// 4- click on each link in the coloumn and check if the pages are opening-
+		for (int i = 1; i < coloumndriver.findElements(By.tagName("a")).size(); i++) {
+
+			String clickonlinkTab = Keys.chord(Keys.CONTROL, Keys.ENTER);
+
+			coloumndriver.findElements(By.tagName("a")).get(i).sendKeys(clickonlinkTab);
+			
+		} // opens all the tabs
+		Set<String> abc = driver.getWindowHandles();// 4
+		Iterator<String> it = abc.iterator();
+
+		while (it.hasNext()) {
+			
+			
+			driver.switchTo().window(it.next());
+			System.out.println(driver.getTitle());
+			
+
+		
+
+	}
+	
+	
+//	  String PT = driver.getWindowHandle();
+//   Set<String> CT=driver.getWindowHandles();
+//   
+//   
+//   Iterator<String> I1=CT.iterator();
+//   
+//   while(I1.hasNext())
+//   {
+//	   String ct=I1.next();
+//	   if(!PT.equals(ct))
+//	   {
+//		   driver.switchTo().window(ct);
+//		 WebElement ele = driver.findElement(By.xpath("(//span[contains(text(),\"Apple iPhone 14 (128 GB) - Blue\")])[1]"));
+//	   
+//	   System.out.println("text is" +ele.getText());
+//	   }
+//   }
+}}

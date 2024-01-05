@@ -1,0 +1,129 @@
+package package2;
+
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class TestCases {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver",
+				"C:\\Users\\gbsk2\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--remote-allow-origins=*");
+		WebDriver driver = new ChromeDriver(options);
+		
+		/* driver.get("http://qaclickacademy.com/practice.php");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.xpath("//*[@value=\"radio2\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"autocomplete\"]")).sendKeys("India");
+		
+		WebElement s=driver.findElement(By.xpath("//*[@id=\"dropdown-class-example\"]"));
+		Select r=new Select(s);
+		r.selectByValue("option2");
+		
+		driver.findElement(By.xpath("//*[@id=\"checkBoxOption2\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"checkBoxOption3\"]")).click();
+		
+		driver.findElement(By.xpath("//*[@id=\"openwindow\"]")).click();
+		*/
+
+		driver.get("http://qaclickacademy.com/practice.php");
+		driver.manage().window().maximize();
+		
+
+		// 3-
+		WebElement coloumndriver = driver.findElement(By.xpath("//*[@id=\"openwindow\"]"));
+		System.out.println(coloumndriver.findElements(By.tagName("a")).size());
+
+		// 4- click on each link in the coloumn and check if the pages are opening-
+		for (int i = 1; i < coloumndriver.findElements(By.tagName("a")).size(); i++) {
+
+			String clickonlinkTab = Keys.chord(Keys.CONTROL, Keys.ENTER);
+
+			coloumndriver.findElements(By.tagName("a")).get(i).sendKeys(clickonlinkTab);
+			Thread.sleep(5000);
+
+		} // opens all the tabs
+//		Set<String> abc = driver.getWindowHandles();// 4
+//		Iterator<String> it = abc.iterator();
+//
+//		while (it.hasNext()) {
+//			
+//			
+//			driver.switchTo().window(it.next());
+//			System.out.println(driver.getTitle());
+//			
+//
+//		
+//
+//	}
+		//to  Everyone
+				//STORING WINDOWS ID'S
+						Set<String> windowIds=driver.getWindowHandles();
+						//APPROACH--1
+						
+						for(String winId:windowIds) {
+							String title=driver.switchTo().window(winId).getTitle();
+							if(coloumndriver.equals(title)) {
+								driver.findElement(By.xpath("//*[@id=\"Form_submitForm_EmailHomePage\"]")).sendKeys("Admin");
+							}
+							
+						}
+						
+						
+						  String PT = driver.getWindowHandle();
+					   Set<String> CT=driver.getWindowHandles();
+					   
+					   
+					   Iterator<String> I1=CT.iterator();
+					   
+					   while(I1.hasNext())
+					   {
+						   String ct=I1.next();
+						   if(!PT.equals(ct))
+						   {
+							   driver.switchTo().window(ct);
+							 WebElement ele = driver.findElement(By.xpath("(//span[contains(text(),\"Apple iPhone 14 (128 GB) - Blue\")])[1]"));
+						   
+						   System.out.println("text is" +ele.getText());
+						   }
+					   }
+				//APPROACH---2 
+						//CONVERTING SET TO LIST TO ITERATION
+						
+						List<String> win_id_list=new ArrayList(windowIds);
+						String parentWindowID=win_id_list.get(0);
+						String childWindowID=win_id_list.get(1);
+						driver.switchTo().window(childWindowID);
+						driver.findElement(By.xpath("//*[@id=\"Form_submitForm_EmailHomePage\"]")).sendKeys("Admin");
+						driver.switchTo().window(parentWindowID).findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[2]/input")).sendKeys("aDMIN");
+						driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[2]/div/div[2]/input")).sendKeys("Admin@123");
+					
+						//CLOSING A PARTICULAR TAB
+						for(String close_Window:windowIds) {
+							String titles=driver.switchTo().window(close_Window).getTitle();
+							if( titles.equals("x") || titles.equals("y") || titles.equals("z")){}
+							if(second_tab_title.equals(titles)) {
+								driver.close();
+							}
+
+						driver.findElement(By.xpath("//input[@name=\"email\"]"));
+						}
+					}
+
+			}
+
+
+	}
+
+}

@@ -1,0 +1,9 @@
+package inheritance;
+
+public class Sim5G extends Sim4G {
+	public void sim5g() {
+		super.sim4g();
+		System.out.println("5G+");
+	}
+
+}

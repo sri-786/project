@@ -1,0 +1,23 @@
+package selenium_practice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Shopping {
+
+	public static void main(String[] args) {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://magento.softwaretestingboard.com/");
+		driver.manage().window().maximize();
+
+		driver.findElement(By.xpath("(//*[text()=\"Create an Account\"])[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"firstname\"]")).sendKeys("Sri");
+		driver.findElement(By.xpath("//*[@id=\"lastname\"]")).sendKeys("kanth");
+		driver.findElement(By.xpath("//*[@name=\"email\"]")).sendKeys("sri12345@gamail.com");
+		driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("sri12345@");
+		driver.findElement(By.xpath("//*[@id=\"password-confirmation\"]")).sendKeys("sri12345@");
+		driver.findElement(By.xpath("(//button[@type=\"submit\"])[2]")).click();
+	}
+
+}
