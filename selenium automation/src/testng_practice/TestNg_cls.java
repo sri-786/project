@@ -7,4 +7,8 @@ public class TestNg_cls {
   public void f() {
 	  System.out.println("Welcome to TestNG");
   }
+	 @Test
+  public void f1() {
+	  System.out.println("TestNG");
+  }
 }
