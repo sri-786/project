@@ -11,4 +11,8 @@ public class TestNg_cls {
   public void f1() {
 	  System.out.println("TestNG");
   }
+	 @Test
+  public void f3() {
+	  System.out.println("TestNG again changes");
+  }
 }
